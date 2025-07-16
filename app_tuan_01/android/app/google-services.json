@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "215482151490",
+    "project_id": "th-meomeo",
+    "storage_bucket": "th-meomeo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:215482151490:android:3d1e2045fedc6cb20b33db",
+        "android_client_info": {
+          "package_name": "com.example.app_tuan_01"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcfq-ZGVe9Of6fLl5ZfX7hn86GiFFhsVI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
