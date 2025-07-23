@@ -98,7 +98,7 @@ class _LoginState extends State<Login> {
                   ),
                   const SizedBox(height: 24),
                   const Text(
-                    'ĐĂNG NHẬP HỆ THỐNG',
+                    'ĐĂNG NHẬP',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 24,
@@ -107,16 +107,7 @@ class _LoginState extends State<Login> {
                       color: Colors.blue,
                     ),
                   ),
-                  const Text(
-                    'Nhập tùy ý Email và Mật khẩu để vào Trang chính',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      fontStyle: FontStyle.italic,
-                      color: Colors.orange,
-                    ),
-                  ),
+                 
                   const SizedBox(height: 32),
                   TextFormField(
                     controller: _emailController,

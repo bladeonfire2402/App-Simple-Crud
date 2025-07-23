@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../screen/login.dart';
-import '../screen/contact_screen.dart';
 import '../screen/info.dart';
-import '../screen/config_screen.dart';
 import '../screen/product_list_screen.dart';
 import '../screen/product_grid_screen.dart';
 import '../screen/product_table_screen.dart';
@@ -60,37 +58,6 @@ class AppDrawer extends StatelessWidget {
             accountEmail: Text(userInfo?['email'] ?? ''),
           ),
           ListTile(
-            leading: const Icon(Icons.home),
-            title: const Text('Home'),
-            selected: showSelected && selectedIndex == 0,
-            onTap: () {
-              Navigator.pop(context);
-              if (onSelect != null) {
-                onSelect!(0);
-              } else {
-                Navigator.pushNamed(context, '/home');
-              }
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.contact_phone),
-            title: const Text('Contact'),
-            selected: showSelected && selectedIndex == 1,
-            onTap: () {
-              Navigator.pop(context);
-              if (onSelect != null) {
-                onSelect!(1);
-              } else {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ContactScreen(),
-                  ),
-                );
-              }
-            },
-          ),
-          ListTile(
             leading: const Icon(Icons.person),
             title: const Text('Info'),
             selected: showSelected && selectedIndex == 2,
@@ -117,22 +84,6 @@ class AppDrawer extends StatelessWidget {
                                 )
                                 : const Login(),
                   ),
-                );
-              }
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.auto_fix_high),
-            title: const Text('Config'),
-            selected: showSelected && selectedIndex == 3,
-            onTap: () {
-              Navigator.pop(context);
-              if (onSelect != null) {
-                onSelect!(3);
-              } else {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ConfigApp()),
                 );
               }
             },

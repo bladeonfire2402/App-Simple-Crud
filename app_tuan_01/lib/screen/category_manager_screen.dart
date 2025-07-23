@@ -98,7 +98,7 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: const Text('Quản lý danh mục'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.orange,
         foregroundColor: Colors.white,
       ),
       drawer: AppDrawer(

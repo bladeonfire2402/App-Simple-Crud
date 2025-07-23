@@ -146,6 +146,7 @@ class _FirebaseCategoryManagerScreenState
         child: Column(
           children: [
             Card(
+              color: Colors.orange,
               elevation: 4,
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -156,7 +157,7 @@ class _FirebaseCategoryManagerScreenState
                     children: [
                       Row(
                         children: [
-                          const Icon(Icons.cloud, color: Colors.orange),
+                          const Icon(Icons.cloud, color: Colors.white),
                           const SizedBox(width: 8),
                           Text(
                             _editingId == null
@@ -165,6 +166,7 @@ class _FirebaseCategoryManagerScreenState
                             style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
+                              color: Colors.white
                             ),
                           ),
                         ],
@@ -177,8 +179,14 @@ class _FirebaseCategoryManagerScreenState
                         enableSuggestions: false,
                         decoration: const InputDecoration(
                           labelText: 'Tên danh mục',
-                          border: OutlineInputBorder(),
-                          prefixIcon: Icon(Icons.category),
+                          labelStyle: TextStyle(color: Colors.white), // Chỉnh màu labelText thành trắng
+                         border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white, width: 2), // Đường viền khi không focus
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white, width: 2), // Đường viền khi focus
+                          ),
+                          prefixIcon: Icon(Icons.category, color:Colors.white,),
                         ),
                         validator:
                             (value) =>
@@ -193,9 +201,16 @@ class _FirebaseCategoryManagerScreenState
                         autocorrect: false,
                         enableSuggestions: false,
                         decoration: const InputDecoration(
+                         
                           labelText: 'Tên file hình (vd: iphone.png)',
-                          border: OutlineInputBorder(),
-                          prefixIcon: Icon(Icons.image),
+                          labelStyle: TextStyle(color: Colors.white), // Chỉnh màu labelText thành trắng
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white, width: 2), // Đường viền khi không focus
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white, width: 2), // Đường viền khi focus
+                          ),
+                          prefixIcon: Icon(Icons.image, color: Colors.white,),
                         ),
                       ),
                       const SizedBox(height: 16),
@@ -214,10 +229,10 @@ class _FirebaseCategoryManagerScreenState
                             icon: Icon(
                               _editingId == null ? Icons.add : Icons.save,
                             ),
-                            label: Text(_editingId == null ? 'Thêm' : 'Lưu'),
+                            label: Text(_editingId == null ? 'Thêm' : 'Lưu',style: TextStyle(color: Colors.orange),),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.orange,
-                              foregroundColor: Colors.white,
+                              backgroundColor: Colors.white,
+                              foregroundColor: Colors.orange,
                             ),
                           ),
                         ],
@@ -233,9 +248,9 @@ class _FirebaseCategoryManagerScreenState
                 const Icon(Icons.cloud_queue, color: Colors.orange),
                 const SizedBox(width: 8),
                 Text(
-                  'Danh sách danh mục Firebase (${_categories.length})',
+                  'Danh mục Firebase (${_categories.length})',
                   style: const TextStyle(
-                    fontSize: 16,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -260,10 +275,13 @@ class _FirebaseCategoryManagerScreenState
                   ),
                 )
                 : Column(
+                  spacing: 10,
                   children:
                       _categories.map((cat) {
                         return Card(
                           margin: const EdgeInsets.only(bottom: 8),
+                          color: Colors.orange,
+                          borderOnForeground: true,
                           child: ListTile(
                             leading: CircleAvatar(
                               radius: 25,
@@ -299,27 +317,30 @@ class _FirebaseCategoryManagerScreenState
                               cat['name'] ?? '',
                               style: const TextStyle(
                                 fontWeight: FontWeight.w600,
+                                fontSize: 18,
+                                color: Colors.white
                               ),
                             ),
                             subtitle: Column(
+                              spacing: 10,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'ID: ${cat['id']}',
-                                  style: TextStyle(color: Colors.grey[600]),
+                                  '${cat['id']}',
+                                  style: TextStyle(color: Colors.grey[300], fontSize: 11),
                                 ),
                                 Row(
                                   children: [
                                     const Icon(
                                       Icons.cloud,
                                       size: 12,
-                                      color: Colors.orange,
+                                      color: Colors.white,
                                     ),
                                     const SizedBox(width: 4),
                                     Text(
                                       'Firebase',
                                       style: TextStyle(
-                                        color: Colors.orange[600],
+                                        color: Colors.orange[100],
                                         fontSize: 12,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -331,21 +352,36 @@ class _FirebaseCategoryManagerScreenState
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                IconButton(
-                                  icon: const Icon(
-                                    Icons.edit,
-                                    color: Colors.blue,
+                                Container(
+                                  
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10)  
                                   ),
-                                  onPressed: () => _editCategory(cat),
-                                  tooltip: 'Sửa',
+                                  child: IconButton(
+                                    icon: const Icon(
+                                      Icons.edit,
+                                      color: Colors.orange,
+                                    ),
+                                    onPressed: () => _editCategory(cat),
+                                    tooltip: 'Sửa',
+                                  ),
                                 ),
-                                IconButton(
-                                  icon: const Icon(
-                                    Icons.delete,
-                                    color: Colors.red,
+                                Container(
+                                  margin: const EdgeInsets.only(left: 4),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10)  
                                   ),
-                                  onPressed: () => _deleteCategory(cat['id']),
-                                  tooltip: 'Xóa',
+                                  child: IconButton(
+                                    icon: const Icon(
+                                      Icons.delete,
+                                      color: Colors.red,
+                                      
+                                    ),
+                                    onPressed: () => _deleteCategory(cat['id']),
+                                    tooltip: 'Xóa',
+                                  ),
                                 ),
                               ],
                             ),

@@ -1,4 +1,5 @@
 import 'package:app_tuan_01/screen/login.dart';
+import 'package:app_tuan_01/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'My app Flutter',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
         '/welcome': (context) => const Welcome(),
         '/login': (context) => const Login(),
       },
-      home: Scaffold(body: Welcome()),
+      home: Scaffold(body: Splashscreen()),
     );
   }
 }

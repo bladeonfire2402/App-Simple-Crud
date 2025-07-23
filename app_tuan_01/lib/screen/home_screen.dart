@@ -13,18 +13,18 @@ class CarouselWidget extends StatelessWidget {
   final List<Map<String, String>> items = [
     {
       'image': '${ulrAssets}slider1.jpg',
-      'title': 'Sinh Ra',
-      'subtitle': 'Khởi đầu hành trình cuộc đời',
+      'title': 'Uy tín',
+      'subtitle': 'Chúng tôi đặt uy tín lên hàng đầu',
     },
     {
       'image': '${ulrAssets}slider2.jpg',
-      'title': 'Thời Học Tiểu Học',
-      'subtitle': 'Khám phá thế giới qua những trang sách',
+      'title': 'Chất lượng',
+      'subtitle': 'Sản phẩm chất lượng',
     },
     {
       'image': '${ulrAssets}slider3.jpg',
-      'title': 'Tốt Nghiệp Đại Học',
-      'subtitle': 'Khép lại một chặng đường học tập',
+      'title': 'Bổ rẻ',
+      'subtitle': 'Sản phẩm siu rẻ',
     },
   ];
 
@@ -70,7 +70,7 @@ class CarouselWidget extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blue,
+                          color: Colors.orange,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -220,7 +220,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
 
     return Scaffold(
-      appBar: AppBar(title: const Text('My App Flutter')),
+      appBar: AppBar(title: const Text('',style: TextStyle(fontSize: 24, color: Colors.blue,fontWeight: FontWeight.bold),)),
       drawer: AppDrawer(
         context: context,
         userInfo: _userInfo,
@@ -244,13 +244,13 @@ class _HomeScreenState extends State<HomeScreen> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.contact_phone),
-            label: 'Contact',
+            icon: Icon(Icons.card_travel),
+            label: 'Shop',
           ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Info'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.auto_fix_high),
-            label: 'Config',
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
       ),
