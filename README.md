@@ -42,8 +42,8 @@ This project was developed by me
 
 1. **Clone this repo**
    ```bash
-   git clone https://github.com/yourusername/my_profile_app.git
-   cd "to my app"
+   git clone https://github.com/bladeonfire2402/App-Simple-Crud.git
+   cd app-tuan-01
 2. **Add package**
    ```bash
    flutter pub get
